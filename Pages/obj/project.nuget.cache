@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "QfmYu3UQsSE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Pablo\\Desktop\\CODING\\QA testing projects\\OrangeHrm-e2e-automation\\Pages\\Pages.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.playwright\\1.58.0\\microsoft.playwright.1.58.0.nupkg.sha512",
+    "C:\\Users\\Pablo\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
