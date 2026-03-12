@@ -5,10 +5,18 @@ namespace Pages;
 
 public class LoginPage : BasePage
 {
-  public LoginPage(IPage page) : base(page) { }
 
-  private ILocator UsernameInput => Page.GetByPlaceholder("Username");
-  private ILocator PasswordInput => Page.GetByPlaceholder("Password");
-  private ILocator LoginButton => Page.GetByRole(AriaRole.Button, new() { Name = "Login" });
-  private ILocator Alert => Page.GetByRole(AriaRole.Alert);
+  private readonly ILocator _usernameInput;
+  private readonly ILocator _passwordInput;
+  private readonly ILocator _loginButton;
+  private readonly ILocator _invalidCredentialAlert;
+
+
+  public LoginPage(IPage page) : base(page)
+  {
+    _usernameInput = Page.GetByPlaceholder("Username");
+    _passwordInput = Page.GetByPlaceholder("Password");
+    _loginButton = Page.GetByRole(AriaRole.Button, new() { Name = "Login" });
+    _invalidCredentialAlert = Page.GetByText("Invalid credentials");
+  }
 }
