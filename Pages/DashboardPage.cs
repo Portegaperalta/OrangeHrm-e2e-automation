@@ -19,6 +19,7 @@ public class DashboardPage : BasePage
     private readonly ILocator _buzzPostCard;
     private readonly ILocator _employeesOnLeaveWidget;
     private readonly ILocator _employeesOnLeaveWidgetConfigurationButton;
+    private readonly ILocator _employeesOnLeaveWidgetConfigurationDialog;
     private readonly ILocator _employeeDistributionBySubWidget;
     private readonly ILocator _employeeDistributionByLocationWidget;
 
@@ -59,6 +60,9 @@ public class DashboardPage : BasePage
                                .Filter(new() { HasText = "Employees on Leave Today" });
 
         _employeesOnLeaveWidgetConfigurationButton = _employeesOnLeaveWidget.Locator(".bi-gear-fill");
+
+        _employeesOnLeaveWidgetConfigurationDialog = Page.Locator(".orangehrm-dialog-modal")
+                                                         .Filter(new() { HasText = "Configurations" });
 
         _employeeDistributionBySubWidget = Page.Locator(".orangehrm-dashboard-widget")
                                .Filter(new() { HasText = "Employee Distribution by Sub Unit" });
