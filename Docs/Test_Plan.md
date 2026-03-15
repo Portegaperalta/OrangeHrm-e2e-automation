@@ -22,15 +22,12 @@ It establishes the scope, approach, resources, and tooling to validate that all 
 |--------|-------------------|----------|
 | Authentication | Login , logout | P0 – Critical |
 | Dashboard | Widget visibility, navigation links| P1 – High |
-| PIM / Employee Management | Add, edit, delete, search employee; upload photo | P0 – Critical |
-| Leave Management | Apply, approve/reject, cancel leave | P0 – Critical |
-| Time & Attendance | Attendance reports, timesheet submission & approval | P1 – High |
+| PIM / Employee Management | Add, edit, delete, search employee| P0 – Critical |
 | Admin – User Management | Create, edit, delete user; assign roles; reset password | P0 – Critical |
-| Admin – Organization | Company structure, locations, job titles, pay grades | P1 – High |
 | Recruitment | Add candidate, schedule interview, hire candidate | P1 – High |
-| Reports | Generate standard/custom reports, export CSV/PDF | P2 – Medium |
 
 ### 3.2 Out of Scope: 
+*   **Attendance, Reports, and Leave Management modules**.
 
 *   **Mobile application testing**.
 
