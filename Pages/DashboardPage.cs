@@ -7,6 +7,7 @@ public class DashboardPage : BasePage
 {
   private readonly ILocator _dashboardTitle;
   private readonly ILocator _userDropwdownMenuButton;
+  private readonly ILocator _sidePanel;
   private readonly ILocator _timeAtWorkWidget;
   private readonly ILocator _myActionsWidget;
   private readonly ILocator _quickLaunchWidget;
@@ -24,6 +25,8 @@ public class DashboardPage : BasePage
     });
 
     _userDropwdownMenuButton = Page.Locator(".oxd-userdropdown");
+
+    _sidePanel = Page.Locator(".oxd-sidepanel");
 
     _timeAtWorkWidget = Page.Locator(".orangehrm-dashboard-widget-name")
                             .Filter(new LocatorFilterOptions { HasText = "Time at Work" })
@@ -53,4 +56,34 @@ public class DashboardPage : BasePage
                             .Filter(new LocatorFilterOptions { HasText = "Employee Distribution by Location" })
                             .Locator("p");
   }
+
+  // Verification methods
+  public async Task<bool> IsDashboardTitleVisible()
+      => await _dashboardTitle.IsVisibleAsync();
+  public async Task<bool> IsUserDropdownMenuButtonVisible()
+      => await _userDropwdownMenuButton.IsVisibleAsync();
+
+  public async Task<bool> IsSidePanelVisible()
+      => await _sidePanel.IsVisibleAsync();
+
+  public async Task<bool> IsTimeAtWorkWidgetVisible()
+      => await _timeAtWorkWidget.IsVisibleAsync();
+
+  public async Task<bool> IsMyActionsWidgetVisible()
+      => await _myActionsWidget.IsVisibleAsync();
+
+  public async Task<bool> IsQuickLaunchWidgetVisible()
+      => await _quickLaunchWidget.IsVisibleAsync();
+
+  public async Task<bool> IsBuzzPostWidgetVisible()
+      => await _buzzPostsWidget.IsVisibleAsync();
+
+  public async Task<bool> IsEmployeesOnLeaveWidgetVisible()
+      => await _employeesOnLeaveWidget.IsVisibleAsync();
+
+  public async Task<bool> IsEmployeeDistributionBySubUnitWidgetVisible()
+      => await _employeeDistributionBySubWidget.IsVisibleAsync();
+
+  public async Task<bool> IsEmployeeDistributionByLocationWidgetVisible()
+      => await _employeeDistributionByLocationWidget.IsVisibleAsync();
 }
