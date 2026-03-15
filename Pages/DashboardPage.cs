@@ -24,37 +24,23 @@ public class DashboardPage : BasePage
       Level = 6
     });
 
-    _userDropwdownMenuButton = Page.Locator(".oxd-userdropdown");
+    _userDropwdownMenuButton = Page.Locator("li.oxd-userdropdown");
 
-    _sidePanel = Page.Locator(".oxd-sidepanel");
+    _sidePanel = Page.GetByRole(AriaRole.Navigation, new() { Name = "Sidepanel" });
 
-    _timeAtWorkWidget = Page.Locator(".orangehrm-dashboard-widget-name")
-                            .Filter(new LocatorFilterOptions { HasText = "Time at Work" })
-                            .Locator("p");
+    _timeAtWorkWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Time at Work" });
 
-    _myActionsWidget = Page.Locator(".orangehrm-dashboard-widget-name")
-                            .Filter(new LocatorFilterOptions { HasText = "My Actions" })
-                            .Locator("p");
+    _myActionsWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "My Actions" });
 
-    _quickLaunchWidget = Page.Locator(".orangehrm-dashboard-widget-name")
-                            .Filter(new LocatorFilterOptions { HasText = "Quick Launch" })
-                            .Locator("p");
+    _quickLaunchWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Quick Launch" });
 
-    _buzzPostsWidget = Page.Locator(".orangehrm-dashboard-widget-name")
-                            .Filter(new LocatorFilterOptions { HasText = "Buzz Latest Posts" })
-                            .Locator("p");
+    _buzzPostsWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Buzz Latest Posts" });
 
-    _employeesOnLeaveWidget = Page.Locator(".orangehrm-dashboard-widget-name")
-                            .Filter(new LocatorFilterOptions { HasText = "Employees on Leave Today" })
-                            .Locator("p");
+    _employeesOnLeaveWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Employees on Leave Today" });
 
-    _employeeDistributionBySubWidget = Page.Locator(".orangehrm-dashboard-widget-name")
-                            .Filter(new LocatorFilterOptions { HasText = "Employee Distribution by Sub Unit" })
-                            .Locator("p");
+    _employeeDistributionBySubWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Employee Distribution by Sub Unit" });
 
-    _employeeDistributionByLocationWidget = Page.Locator(".orangehrm-dashboard-widget-name")
-                            .Filter(new LocatorFilterOptions { HasText = "Employee Distribution by Location" })
-                            .Locator("p");
+    _employeeDistributionByLocationWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Employee Distribution by Location" });
   }
 
   // Verification methods
