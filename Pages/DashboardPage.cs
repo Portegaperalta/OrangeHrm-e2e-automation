@@ -8,6 +8,10 @@ public class DashboardPage : BasePage
 {
     private readonly ILocator _dashboardTitle;
     private readonly ILocator _userDropwdownMenuButton;
+    private readonly ILocator _aboutLink;
+    private readonly ILocator _supportLink;
+    private readonly ILocator _changePasswordLink;
+    private readonly ILocator _logoutLink;
     private readonly ILocator _sidePanel;
     private readonly ILocator _helpButton;
     private readonly ILocator _timeAtWorkWidget;
@@ -32,6 +36,20 @@ public class DashboardPage : BasePage
         });
 
         _userDropwdownMenuButton = Page.Locator("li.oxd-userdropdown");
+
+        _userDropwdownMenuButton = Page.Locator("ul.oxd-dropdown-menu");
+
+        _aboutLink = _userDropwdownMenuButton.Locator(".oxd-userdropdown-link")
+                                             .Filter(new() { HasText = "About" });
+
+        _supportLink = _userDropwdownMenuButton.Locator(".oxd-userdropdown-link")
+                                               .Filter(new() { HasText = "Support" });
+
+        _changePasswordLink = _userDropwdownMenuButton.Locator(".oxd-userdropdown-link")
+                                                      .Filter(new() { HasText = "Change Password" });
+
+        _logoutLink = _userDropwdownMenuButton.Locator(".oxd-userdropdown-link")
+                                              .Filter(new() { HasText = "Logout" });
 
         _sidePanel = Page.GetByRole(AriaRole.Navigation, new() { Name = "Sidepanel" });
 
