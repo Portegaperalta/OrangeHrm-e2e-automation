@@ -1,75 +1,99 @@
 using System;
+using System.Text.RegularExpressions;
 using Microsoft.Playwright;
 
 namespace Pages;
 
 public class DashboardPage : BasePage
 {
-  private readonly ILocator _dashboardTitle;
-  private readonly ILocator _userDropwdownMenuButton;
-  private readonly ILocator _sidePanel;
-  private readonly ILocator _timeAtWorkWidget;
-  private readonly ILocator _myActionsWidget;
-  private readonly ILocator _quickLaunchWidget;
-  private readonly ILocator _buzzPostsWidget;
-  private readonly ILocator _employeesOnLeaveWidget;
-  private readonly ILocator _employeeDistributionBySubWidget;
-  private readonly ILocator _employeeDistributionByLocationWidget;
+    private readonly ILocator _dashboardTitle;
+    private readonly ILocator _userDropwdownMenuButton;
+    private readonly ILocator _sidePanel;
+    private readonly ILocator _helpButton;
+    private readonly ILocator _timeAtWorkWidget;
+    private readonly ILocator _punchInButton;
+    private readonly ILocator _myActionsWidget;
+    private readonly ILocator _quickLaunchWidget;
+    private readonly ILocator _quickLaunchCard;
+    private readonly ILocator _buzzPostsWidget;
+    private readonly ILocator _buzzPostCard;
+    private readonly ILocator _employeesOnLeaveWidget;
+    private readonly ILocator _employeesOnLeaveWidgetConfigurationButton;
+    private readonly ILocator _employeeDistributionBySubWidget;
+    private readonly ILocator _employeeDistributionByLocationWidget;
 
-  public DashboardPage(IPage page) : base(page)
-  {
-    _dashboardTitle = Page.GetByRole(AriaRole.Heading, new()
+    public DashboardPage(IPage page) : base(page)
     {
-      Name = "Dashboard",
-      Level = 6
-    });
+        _dashboardTitle = Page.GetByRole(AriaRole.Heading, new()
+        {
+            Name = "Dashboard",
+            Level = 6
+        });
 
-    _userDropwdownMenuButton = Page.Locator("li.oxd-userdropdown");
+        _userDropwdownMenuButton = Page.Locator("li.oxd-userdropdown");
 
-    _sidePanel = Page.GetByRole(AriaRole.Navigation, new() { Name = "Sidepanel" });
+        _sidePanel = Page.GetByRole(AriaRole.Navigation, new() { Name = "Sidepanel" });
 
-    _timeAtWorkWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Time at Work" });
+        _helpButton = Page.GetByRole(AriaRole.Button)
+                          .GetByTitle(new Regex("help", RegexOptions.IgnoreCase));
 
-    _myActionsWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "My Actions" });
+        _timeAtWorkWidget = Page.Locator(".orangehrm-dashboard-widget")
+                                .Filter(new() { HasText = "Time at Work" });
 
-    _quickLaunchWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Quick Launch" });
+        _punchInButton = _timeAtWorkWidget.GetByRole(AriaRole.Button);
 
-    _buzzPostsWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Buzz Latest Posts" });
+        _myActionsWidget = Page.Locator(".orangehrm-dashboard-widget")
+                               .Filter(new() { HasText = "My Actions" });
 
-    _employeesOnLeaveWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Employees on Leave Today" });
+        _quickLaunchWidget = Page.Locator(".orangehrm-dashboard-widget")
+                               .Filter(new() { HasText = "Quick Launch" });
 
-    _employeeDistributionBySubWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Employee Distribution by Sub Unit" });
+        _quickLaunchCard = _quickLaunchWidget.Locator(".orangehrm-quick-launch-card");
 
-    _employeeDistributionByLocationWidget = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Employee Distribution by Location" });
-  }
+        _buzzPostsWidget = Page.Locator(".orangehrm-dashboard-widget")
+                               .Filter(new() { HasText = "Buzz Latest Posts" });
 
-  // Verification methods
-  public async Task<bool> IsDashboardTitleVisible()
-      => await _dashboardTitle.IsVisibleAsync();
-  public async Task<bool> IsUserDropdownMenuButtonVisible()
-      => await _userDropwdownMenuButton.IsVisibleAsync();
+        _buzzPostCard = _buzzPostsWidget.Locator(".orangehrm-buzz-widget-card");
 
-  public async Task<bool> IsSidePanelVisible()
-      => await _sidePanel.IsVisibleAsync();
+        _employeesOnLeaveWidget = Page.Locator(".orangehrm-dashboard-widget")
+                               .Filter(new() { HasText = "Employees on Leave Today" });
 
-  public async Task<bool> IsTimeAtWorkWidgetVisible()
-      => await _timeAtWorkWidget.IsVisibleAsync();
+        _employeesOnLeaveWidgetConfigurationButton = _employeesOnLeaveWidget.Locator(".bi-gear-fill");
 
-  public async Task<bool> IsMyActionsWidgetVisible()
-      => await _myActionsWidget.IsVisibleAsync();
+        _employeeDistributionBySubWidget = Page.Locator(".orangehrm-dashboard-widget")
+                               .Filter(new() { HasText = "Employee Distribution by Sub Unit" });
 
-  public async Task<bool> IsQuickLaunchWidgetVisible()
-      => await _quickLaunchWidget.IsVisibleAsync();
+        _employeeDistributionByLocationWidget = Page.Locator(".orangehrm-dashboard-widget")
+                               .Filter(new() { HasText = "Employee Distribution by Location" });
+    }
 
-  public async Task<bool> IsBuzzPostWidgetVisible()
-      => await _buzzPostsWidget.IsVisibleAsync();
+    // Verification methods
+    public async Task<bool> IsDashboardTitleVisible()
+        => await _dashboardTitle.IsVisibleAsync();
+    public async Task<bool> IsUserDropdownMenuButtonVisible()
+        => await _userDropwdownMenuButton.IsVisibleAsync();
 
-  public async Task<bool> IsEmployeesOnLeaveWidgetVisible()
-      => await _employeesOnLeaveWidget.IsVisibleAsync();
+    public async Task<bool> IsSidePanelVisible()
+        => await _sidePanel.IsVisibleAsync();
 
-  public async Task<bool> IsEmployeeDistributionBySubUnitWidgetVisible()
-      => await _employeeDistributionBySubWidget.IsVisibleAsync();
+    public async Task<bool> IsTimeAtWorkWidgetVisible()
+        => await _timeAtWorkWidget.IsVisibleAsync();
 
-  public async Task<bool> IsEmployeeDistributionByLocationWidgetVisible()
-      => await _employeeDistributionByLocationWidget.IsVisibleAsync();
+    public async Task<bool> IsMyActionsWidgetVisible()
+        => await _myActionsWidget.IsVisibleAsync();
+
+    public async Task<bool> IsQuickLaunchWidgetVisible()
+        => await _quickLaunchWidget.IsVisibleAsync();
+
+    public async Task<bool> IsBuzzPostWidgetVisible()
+        => await _buzzPostsWidget.IsVisibleAsync();
+
+    public async Task<bool> IsEmployeesOnLeaveWidgetVisible()
+        => await _employeesOnLeaveWidget.IsVisibleAsync();
+
+    public async Task<bool> IsEmployeeDistributionBySubUnitWidgetVisible()
+        => await _employeeDistributionBySubWidget.IsVisibleAsync();
+
+    public async Task<bool> IsEmployeeDistributionByLocationWidgetVisible()
+        => await _employeeDistributionByLocationWidget.IsVisibleAsync();
 }
