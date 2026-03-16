@@ -22,9 +22,21 @@ public class LoginPage : BasePage
     _invalidCredentialAlert = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Invalid credentials" });
   }
 
-  public async Task InsertUserName(string username) => await _usernameInput.FillAsync(username);
+  // Verification methods
+  public async Task<bool> IsUsernameInputVisible()
+      => await _usernameInput.IsVisibleAsync();
 
-  public async Task InsertPassword(string password) => await _passwordInput.FillAsync(password);
+  public async Task<bool> IsPasswordInputVisibleAsync()
+      => await _passwordInput.IsVisibleAsync();
 
-  public async Task ClickLoginButton() => await _loginButton.ClickAsync();
+  public async Task<bool> IsLoginButtonVisibleAsync()
+      => await _loginButton.IsVisibleAsync();
+
+  // Interaction methods
+
+  public async Task InsertUserNameAsync(string username) => await _usernameInput.FillAsync(username);
+
+  public async Task InsertPasswordAsync(string password) => await _passwordInput.FillAsync(password);
+
+  public async Task ClickLoginButtonAsync() => await _loginButton.ClickAsync();
 }
