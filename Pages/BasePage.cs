@@ -10,9 +10,4 @@ public abstract class BasePage
   {
     Page = page;
   }
-
-  public async Task NavigateToAsync(string url)
-  {
-    await Page.GotoAsync(url);
-  }
 }
