@@ -27,22 +27,6 @@ public class LoginPage : BasePage
                              .Filter(new() { HasText = "Required" });
     }
 
-    // Verification methods
-    public async Task<bool> IsUsernameInputVisible()
-        => await _usernameInput.IsVisibleAsync();
-
-    public async Task<bool> IsPasswordInputVisibleAsync()
-        => await _passwordInput.IsVisibleAsync();
-
-    public async Task<bool> IsLoginButtonVisibleAsync()
-        => await _loginButton.IsVisibleAsync();
-
-    public async Task<bool> IsInvalidCredentialAlertVisibleAsync()
-        => await _invalidCredentialAlert.IsVisibleAsync();
-
-    public async Task<bool> IsRequiredAlertVisibleAsync()
-        => await _requiredAlert.IsVisibleAsync();
-
     // Interaction methods
 
     public async Task InsertUserNameAsync(string username) => await _usernameInput.FillAsync(username);
