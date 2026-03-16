@@ -5,7 +5,7 @@ namespace Pages;
 
 public class LoginPage : BasePage
 {
-    public string Url = "/auth/login";
+    public string Url = "/web/index.php/auth/login";
     private readonly ILocator _usernameInput;
     private readonly ILocator _passwordInput;
     private readonly ILocator _loginButton;
