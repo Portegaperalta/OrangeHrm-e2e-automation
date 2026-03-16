@@ -6,11 +6,10 @@ namespace Pages;
 public class LoginPage : BasePage
 {
     public string Url = "/web/index.php/auth/login";
-    private readonly ILocator _usernameInput;
+    public readonly ILocator _usernameInput;
     private readonly ILocator _passwordInput;
     private readonly ILocator _loginButton;
     private readonly ILocator _invalidCredentialAlert;
-
     private readonly ILocator _requiredAlert;
 
     public LoginPage(IPage page) : base(page)
@@ -35,7 +34,7 @@ public class LoginPage : BasePage
 
     public async Task ClickLoginButtonAsync() => await _loginButton.ClickAsync();
 
-    public async Task NavigateAsync()
+    public async Task NavigateToAsync()
     {
         await Page.GotoAsync(Url);
     }
