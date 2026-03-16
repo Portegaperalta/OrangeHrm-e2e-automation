@@ -1,6 +1,7 @@
 ﻿using Microsoft.Playwright.Xunit;
 using Microsoft.Playwright;
 using Pages;
+using FluentAssertions;
 
 namespace Tests;
 
