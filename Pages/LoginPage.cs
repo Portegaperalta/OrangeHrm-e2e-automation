@@ -11,6 +11,8 @@ public class LoginPage : BasePage
   private readonly ILocator _loginButton;
   private readonly ILocator _invalidCredentialAlert;
 
+  private readonly ILocator _requiredAlert;
+
   public LoginPage(IPage page) : base(page)
   {
     _usernameInput = Page.GetByRole(AriaRole.Textbox, new() { Name = "Username" });
@@ -20,6 +22,9 @@ public class LoginPage : BasePage
     _loginButton = Page.GetByRole(AriaRole.Button, new() { Name = "Login" });
 
     _invalidCredentialAlert = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Invalid credentials" });
+
+    _requiredAlert = Page.Locator(".oxd-input-field-error-message")
+                         .Filter(new() { HasText = "Required" });
   }
 
   // Verification methods
@@ -31,6 +36,12 @@ public class LoginPage : BasePage
 
   public async Task<bool> IsLoginButtonVisibleAsync()
       => await _loginButton.IsVisibleAsync();
+
+  public async Task<bool> IsInvalidCredentialAlertVisibleAsync()
+      => await _invalidCredentialAlert.IsVisibleAsync();
+
+  public async Task<bool> IsRequiredAlertVisibleAsync()
+      => await _requiredAlert.IsVisibleAsync();
 
   // Interaction methods
 
