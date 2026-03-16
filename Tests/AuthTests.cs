@@ -10,7 +10,7 @@ public class AuthTests : PageTest
     {
         return new BrowserNewContextOptions
         {
-            BaseURL = "https://opensource-demo.orangehrmlive.com",
+            BaseURL = "https://opensource-demo.orangehrmlive.com/web/index.php",
         };
     }
 }
