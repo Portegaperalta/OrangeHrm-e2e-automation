@@ -13,10 +13,13 @@ public class LoginPage : BasePage
 
   public LoginPage(IPage page) : base(page)
   {
-    _usernameInput = Page.GetByPlaceholder("Username");
-    _passwordInput = Page.GetByPlaceholder("Password");
+    _usernameInput = Page.GetByRole(AriaRole.Textbox, new() { Name = "Username" });
+
+    _passwordInput = Page.GetByRole(AriaRole.Textbox, new() { Name = "Password" });
+
     _loginButton = Page.GetByRole(AriaRole.Button, new() { Name = "Login" });
-    _invalidCredentialAlert = Page.GetByText("Invalid credentials");
+
+    _invalidCredentialAlert = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Invalid credentials" });
   }
 
   public async Task InsertUserName(string username) => await _usernameInput.FillAsync(username);
