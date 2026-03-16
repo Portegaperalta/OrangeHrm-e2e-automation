@@ -6,6 +6,7 @@ namespace Pages;
 
 public class DashboardPage : BasePage
 {
+    public string Url = "/dashboard/index";
     private readonly ILocator _dashboardTitle;
     private readonly ILocator _userDropwdownMenuButton;
     private readonly ILocator _logoutLink;
@@ -80,4 +81,14 @@ public class DashboardPage : BasePage
 
     public async Task<bool> IsEmployeeDistributionByLocationWidgetVisible()
         => await _employeeDistributionByLocationWidget.IsVisibleAsync();
+
+    // Interaction Methods
+    public async Task ClickUserDropdownMenuButtonAsync()
+        => await _userDropwdownMenuButton.ClickAsync();
+
+    public async Task ClickLogoutLinkAsync()
+        => await _logoutLink.ClickAsync();
+
+    public async Task NavigateAsync()
+        => await Page.GotoAsync(Url);
 }
