@@ -148,7 +148,7 @@
 * **Preconditions**:  1) App is accessible
 * **Steps:**
 1. Navigate to `https://opensource-demo.orangehrmlive.com/web/index.php/auth/login`
-2. Enter username: `'<script>alert('xss')</script>` 
+2. Enter username: `<script>alert('xss')</script>` 
 3. Enter password: `admin123`
 4. Click **Login**
 
