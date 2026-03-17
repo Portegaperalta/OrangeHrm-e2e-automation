@@ -7,6 +7,17 @@ namespace Pages;
 public class DashboardPage : BasePage
 {
     public string Url = "/dashboard/index";
+    public ILocator DashboardTitle => _dashboardTitle;
+    public ILocator UserDropwdownMenuButton => _userDropwdownMenuButton;
+    public ILocator LogoutLink => _logoutLink;
+    public ILocator TimeAtWorkWidget => _timeAtWorkWidget;
+    public ILocator MyActionsWidget => _myActionsWidget;
+    public ILocator QuickLaunchWidget => _quickLaunchWidget;
+    public ILocator BuzzPostsWidget => _buzzPostsWidget;
+    public ILocator EmployeesOnLeaveWidget => _employeesOnLeaveWidget;
+    public ILocator EmployeeDistributionBySubWidget => _employeeDistributionBySubWidget;
+    public ILocator EmployeeDistributionByLocationWidget => _employeeDistributionByLocationWidget;
+
     private readonly ILocator _dashboardTitle;
     private readonly ILocator _userDropwdownMenuButton;
     private readonly ILocator _logoutLink;
