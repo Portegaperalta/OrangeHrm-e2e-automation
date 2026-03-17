@@ -26,7 +26,7 @@ public class LoginPage : BasePage
 
         _loginButton = Page.GetByRole(AriaRole.Button, new() { Name = "Login" });
 
-        _invalidCredentialAlert = Page.GetByRole(AriaRole.Paragraph, new() { Name = "Invalid credentials" });
+        _invalidCredentialAlert = Page.GetByText("Invalid credentials");
 
         _requiredAlert = Page.Locator(".oxd-input-field-error-message")
                              .Filter(new() { HasText = "Required" });
