@@ -178,8 +178,8 @@
 ---
 
 ### TC-AUTH-013: Login Form is submitted by pressing Enter Key
-* **Priority**: P1 – High
-* **Status**: Not Run
+* **Priority**: P2 – Medium
+* **Status**: Passed 🟢
 * **Type**: Edge Case 
 * **Preconditions**: App is accessible.
 * **Steps:**
