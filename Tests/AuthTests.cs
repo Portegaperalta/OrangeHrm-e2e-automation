@@ -254,4 +254,24 @@ public class AuthTests : PageTest
         await Page.GoBackAsync();
         await Expect(Page).ToHaveURLAsync(loginPage.Url);
     }
+
+    [Fact]
+    public async Task Login_RedirectsToDashboard_WhenUserPressEnter()
+    {
+        // Arrange
+        var loginPage = new LoginPage(Page);
+        var dashboardPage = new DashboardPage(Page);
+
+        var username = "Admin";
+        var password = "admin123";
+
+        // Act
+        await loginPage.NavigateToAsync();
+        await loginPage.InsertUserNameAsync(username);
+        await loginPage.InsertPasswordAsync(password);
+        await loginPage.UsernameInput.PressAsync("Enter");
+
+        // Assert
+        await Expect(Page).ToHaveURLAsync(dashboardPage.Url);
+    }
 }
