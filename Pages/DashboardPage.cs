@@ -6,7 +6,7 @@ namespace Pages;
 
 public class DashboardPage : BasePage
 {
-    public string Url = "/dashboard/index";
+    public string Url = "/web/index.php/dashboard/index";
     public ILocator DashboardTitle => _dashboardTitle;
     public ILocator UserDropwdownMenuButton => _userDropwdownMenuButton;
     public ILocator LogoutLink => _logoutLink;
