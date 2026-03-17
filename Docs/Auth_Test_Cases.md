@@ -160,3 +160,17 @@
 2. Click **Logout** from the dropdown
    
 **Expected Result:** User is redirected to the login page. The session is terminated.
+
+---
+
+### TC-AUTH-012: Broswer back button after logout
+* **Priority**: P1 – High
+* **Status**: Passed 🟢
+* **Type**: Edge Case / Security
+* **Preconditions**: User was on the Dashboard and just logged out.
+* **Steps:**
+1. Log in and navigate to the Dashboard
+2. Log out (redirected to login page)
+3. Click the browser **Back** button
+   
+**Expected Result:** User stays on login page and is unable to return to the Dashboard.
