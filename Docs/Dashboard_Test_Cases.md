@@ -71,3 +71,33 @@ At least the following widgets are visible:
 2. Click **Assign Leave**
 
 **Expected Result:** User is navigated to the Assign Leave page under the Leave module.
+
+---
+
+### TC-DASH-006: Quick Launch — Leave List
+
+* **Priority**: P1 – High
+* **Status**: Not Run
+* **Type**: Functional
+* **Preconditions**: 1) Admin is logged in 2) Dashboard is loaded
+  
+**Steps:**
+1. Locate the **Leave List** link inside the **Quick Launch** widget.
+2. Click **Leave List**
+
+**Expected Result:** User is navigated to the Leave List page.
+
+---
+
+### TC-DASH-007: Quick Launch — Timesheets
+
+* **Priority**: P1 – High
+* **Status**: Not Run
+* **Type**: Functional
+* **Preconditions**: 1) Admin is logged in 2) Dashboard is loaded
+  
+**Steps:**
+1. Locate the **Timesheets** link inside the **Quick Launch** widget.
+2. Click **Timesheets**
+
+**Expected Result:** User is navigated to the Timesheets page.
