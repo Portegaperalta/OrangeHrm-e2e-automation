@@ -55,33 +55,6 @@ public class DashboardPage : BasePage
                                .Filter(new() { HasText = "Employee Distribution by Location" });
     }
 
-    // Verification methods
-    public async Task<bool> IsDashboardTitleVisible()
-        => await _dashboardTitle.IsVisibleAsync();
-    public async Task<bool> IsUserDropdownMenuButtonVisible()
-        => await _userDropwdownMenuButton.IsVisibleAsync();
-
-    public async Task<bool> IsTimeAtWorkWidgetVisible()
-        => await _timeAtWorkWidget.IsVisibleAsync();
-
-    public async Task<bool> IsMyActionsWidgetVisible()
-        => await _myActionsWidget.IsVisibleAsync();
-
-    public async Task<bool> IsQuickLaunchWidgetVisible()
-        => await _quickLaunchWidget.IsVisibleAsync();
-
-    public async Task<bool> IsBuzzPostWidgetVisible()
-        => await _buzzPostsWidget.IsVisibleAsync();
-
-    public async Task<bool> IsEmployeesOnLeaveWidgetVisible()
-        => await _employeesOnLeaveWidget.IsVisibleAsync();
-
-    public async Task<bool> IsEmployeeDistributionBySubUnitWidgetVisible()
-        => await _employeeDistributionBySubWidget.IsVisibleAsync();
-
-    public async Task<bool> IsEmployeeDistributionByLocationWidgetVisible()
-        => await _employeeDistributionByLocationWidget.IsVisibleAsync();
-
     // Interaction Methods
     public async Task ClickUserDropdownMenuButtonAsync()
         => await _userDropwdownMenuButton.ClickAsync();
