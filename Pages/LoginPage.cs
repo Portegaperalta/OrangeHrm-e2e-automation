@@ -6,7 +6,13 @@ namespace Pages;
 public class LoginPage : BasePage
 {
     public string Url = "/web/index.php/auth/login";
-    public readonly ILocator _usernameInput;
+    public ILocator UsernameInput => _usernameInput;
+    public ILocator PasswordInput => _passwordInput;
+    public ILocator LoginButton => _loginButton;
+    public ILocator InvalidCredentialsAlert => _invalidCredentialAlert;
+    public ILocator RequiredAlert => _requiredAlert;
+
+    private readonly ILocator _usernameInput;
     private readonly ILocator _passwordInput;
     private readonly ILocator _loginButton;
     private readonly ILocator _invalidCredentialAlert;
@@ -27,7 +33,6 @@ public class LoginPage : BasePage
     }
 
     // Interaction methods
-
     public async Task InsertUserNameAsync(string username) => await _usernameInput.FillAsync(username);
 
     public async Task InsertPasswordAsync(string password) => await _passwordInput.FillAsync(password);
