@@ -8,7 +8,7 @@
 
 ### TC-AUTH-001: Valid Admin Login
 * **Priority**: P0 – Critical
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Happy Path
 * **Preconditions**:  1) App is accessible 2) Credentials `Admin / admin123` exist.
 * **Steps:**
@@ -23,7 +23,7 @@
 
 ### TC-AUTH-002: Login with Wrong Password
 * **Priority**: P0 – Critical
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Negative
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -38,7 +38,7 @@
 
 ### TC-AUTH-003: Login with Wrong Username
 * **Priority**: P0 – Critical
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Negative
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -53,7 +53,7 @@
 
 ### TC-AUTH-004: Login with empty username
 * **Priority**: P1 – High
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Negative
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -68,7 +68,7 @@
 
 ### TC-AUTH-005: Login with empty password
 * **Priority**: P1 – High
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Negative
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -83,7 +83,7 @@
 
 ### TC-AUTH-006: Login with both fields empty
 * **Priority**: P1 – High
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Negative
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -98,7 +98,7 @@
 
 ### TC-AUTH-007: Login with white space username
 * **Priority**: P1 – High
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Edge case
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -113,7 +113,7 @@
 
 ### TC-AUTH-008: Login with white space password
 * **Priority**: P1 – High
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Edge case
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -128,7 +128,7 @@
 
 ### TC-AUTH-009: Login with SQL injection in username
 * **Priority**: P1 – High
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Edge case / Security
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -143,7 +143,7 @@
 
 ### TC-AUTH-010: Login with XSS Payload in Username
 * **Priority**: P1 – High
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Edge case / Security
 * **Preconditions**:  1) App is accessible
 * **Steps:**
@@ -158,7 +158,7 @@
 
 ### TC-AUTH-011: Successful Logout
 * **Priority**: P0 – Critical
-* **Status**: Not Run ⚪
+* **Status**: Passed 🟢
 * **Type**: Happy path
 * **Preconditions**: User is logged in as Admin
 * **Steps:**
