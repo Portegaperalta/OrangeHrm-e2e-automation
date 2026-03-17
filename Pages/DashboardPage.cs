@@ -39,10 +39,10 @@ public class DashboardPage : BasePage
 
         _userDropwdownMenuButton = Page.Locator("li.oxd-userdropdown");
 
-        _userDropwdownMenuButton = Page.Locator("ul.oxd-dropdown-menu");
+        _userDropwdownMenuButton = Page.Locator("i.oxd-userdropdown-icon");
 
-        _logoutLink = _userDropwdownMenuButton.Locator(".oxd-userdropdown-link")
-                                              .Filter(new() { HasText = "Logout" });
+        _logoutLink = Page.Locator(".oxd-userdropdown-link")
+                          .Filter(new() { HasText = "Logout" });
 
         _timeAtWorkWidget = Page.Locator(".orangehrm-dashboard-widget")
                                 .Filter(new() { HasText = "Time at Work" });
