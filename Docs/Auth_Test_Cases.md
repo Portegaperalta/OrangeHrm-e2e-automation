@@ -164,7 +164,7 @@
 ---
 
 ### TC-AUTH-012: Broswer back button after logout
-* **Priority**: P1 – High
+* **Priority**: P2 – Medium
 * **Status**: Passed 🟢
 * **Type**: Edge Case / Security
 * **Preconditions**: User was on the Dashboard and just logged out.
@@ -174,3 +174,18 @@
 3. Click the browser **Back** button
    
 **Expected Result:** User stays on login page and is unable to return to the Dashboard.
+
+---
+
+### TC-AUTH-013: Login Form is submitted by pressing Enter Key
+* **Priority**: P1 – High
+* **Status**: Not Run
+* **Type**: Edge Case 
+* **Preconditions**: App is accessible.
+* **Steps:**
+1. Navigate to the login page
+2. Enter username: `Admin`
+3. Enter password: `admin123`
+4. Press the **Enter** key (do NOT click the Login button)
+   
+**Expected Result:** Login is submitted and user is redirected to the Dashboard.
