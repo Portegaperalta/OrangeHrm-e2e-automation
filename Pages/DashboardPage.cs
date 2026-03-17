@@ -73,6 +73,6 @@ public class DashboardPage : BasePage
     public async Task ClickLogoutLinkAsync()
         => await _logoutLink.ClickAsync();
 
-    public async Task NavigateAsync()
+    public async Task NavigateToAsync()
         => await Page.GotoAsync(Url);
 }
