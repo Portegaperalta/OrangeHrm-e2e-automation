@@ -1,10 +1,4 @@
-# Test Cases: OrangeHRM E2E Automation
-
-**Coverage:** Authentication, PIM, Admin User Management, Recruitment, Leave Management, Time & Attendance
-
-## TC-AUTH — Authentication
-
----
+# OrangeHRM E2E Auth Test Cases
 
 ### TC-AUTH-001: Valid Admin Login
 * **Priority**: P0 – Critical
