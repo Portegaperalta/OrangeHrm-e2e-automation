@@ -177,7 +177,7 @@
 
 ---
 
-### TC-AUTH-012: Login Form is submitted by pressing Enter Key
+### TC-AUTH-013: Login Form is submitted by pressing Enter Key
 * **Priority**: P1 – High
 * **Status**: Not Run
 * **Type**: Edge Case 
