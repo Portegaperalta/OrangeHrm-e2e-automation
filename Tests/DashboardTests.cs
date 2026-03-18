@@ -37,4 +37,36 @@ public class DashboardTests : PageTest
     await Expect(dashboardPage.DashboardTitle).ToHaveTextAsync("Dashboard");
     await Expect(sidebar.SidebarContainer).ToBeVisibleAsync();
   }
+
+  [Fact]
+  public async Task SidebarNavigationItems_AreVisible()
+  {
+    // Arrange
+    var loginPage = new LoginPage(Page);
+    var dashboardPage = new DashboardPage(Page);
+    var sidebar = new Sidebar(Page);
+
+    var username = "Admin";
+    var password = "admin123";
+
+    // Act
+    await loginPage.NavigateToAsync();
+    await loginPage.InsertUserNameAsync(username);
+    await loginPage.InsertPasswordAsync(password);
+    await loginPage.ClickLoginButtonAsync();
+
+    // Assert
+    await Expect(Page).ToHaveURLAsync(dashboardPage.Url);
+    await Expect(sidebar.AdminLink).ToBeVisibleAsync();
+    await Expect(sidebar.PimLink).ToBeVisibleAsync();
+    await Expect(sidebar.LeaveLink).ToBeVisibleAsync();
+    await Expect(sidebar.TimeLink).ToBeVisibleAsync();
+    await Expect(sidebar.RecruitmentLink).ToBeVisibleAsync();
+    await Expect(sidebar.MyInfoLink).ToBeVisibleAsync();
+    await Expect(sidebar.PerformanceLink).ToBeVisibleAsync();
+    await Expect(sidebar.DashboardLink).ToBeVisibleAsync();
+    await Expect(sidebar.DirectoryLink).ToBeVisibleAsync();
+    await Expect(sidebar.MaintenanceLink).ToBeVisibleAsync();
+    await Expect(sidebar.BuzzLink).ToBeVisibleAsync();
+  }
 }
