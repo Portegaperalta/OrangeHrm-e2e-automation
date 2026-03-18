@@ -2,7 +2,7 @@
 
 ### TC-DASH-001: Dashboard loads after login
 * **Priority**: P0 – Critical
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Happy Path
 * **Preconditions**: Valid Admin credentials are available.
 * **Steps:**
@@ -15,7 +15,7 @@
 ### TC-DASH-002: Sidebar Navigation Items Are Visible
 
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Functional
 * **Preconditions**: 1) Admin is logged in 2) Dashboard is loaded
 * **Steps:**
@@ -28,7 +28,7 @@
 ### TC-DASH-003: Sidebar Item Navigates to Correct Module
 
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Functional
 * **Preconditions**: 1) Admin is logged in 2) Dashboard is loaded
 **Steps:**
