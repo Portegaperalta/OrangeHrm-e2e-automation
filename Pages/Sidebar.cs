@@ -42,41 +42,65 @@ public class Sidebar : BasePage
             Name = "Sidepanel"
         });
 
-        _adminLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Admin" });
+        _adminLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Admin"
+        });
 
-        _pimLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "PIM" });
+        _pimLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "PIM"
+        });
 
-        _leaveLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Leave" });
+        _leaveLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Leave"
+        });
 
-        _timeLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Time" });
+        _timeLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Time"
+        });
 
-        _recruitmentLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Recruitment" });
+        _recruitmentLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Recruitment"
+        });
 
-        _myInfoLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "My Info" });
+        _myInfoLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "My Info"
+        });
 
-        _performanceLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Performance" });
+        _performanceLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Performance"
+        });
 
-        _dashboardLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Dashboard" });
+        _dashboardLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Dashboard"
+        });
 
-        _directoryLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Directory" });
+        _directoryLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Directory"
+        });
 
-        _maintenanceLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Maintenance" });
+        _maintenanceLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Maintenance"
+        });
 
-        _claimLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Claim" });
+        _claimLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Claim"
+        });
 
-        _buzzLink = _sidebarContainer.Locator("oxd-main-menu-item")
-                                      .Filter(new() { HasText = "Buzz" });
+        _buzzLink = _sidebarContainer.Locator("a.oxd-main-menu-item", new()
+        {
+            HasText = "Buzz"
+        });
     }
 
     // Interaction Methods
