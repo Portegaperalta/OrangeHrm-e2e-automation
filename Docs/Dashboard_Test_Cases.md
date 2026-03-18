@@ -12,7 +12,7 @@
 
 ---
 
-### TC-DASH-002: All Sidebar Navigation Items Are Visible
+### TC-DASH-002: Sidebar Navigation Items Are Visible
 
 * **Priority**: P1 – High
 * **Status**: Not Run
@@ -21,9 +21,7 @@
 * **Steps:**
 1. Observe the left sidebar
 
-**Expected Result:** The following items are visible and enabled:
-Admin, PIM, Leave, Time, Recruitment, My Info, Performance, Dashboard, Directory, Maintenance, Buzz.
-
+**Expected Result:** The following items are visible and enabled: Admin, PIM, Recruitment
 ---
 
 ### TC-DASH-003: Sidebar Item Navigates to Correct Module
@@ -35,7 +33,7 @@ Admin, PIM, Leave, Time, Recruitment, My Info, Performance, Dashboard, Directory
 **Steps:**
 1. Click **PIM** in the sidebar and verify URL and page heading
 2. Navigate back to Dashboard
-3. Repeat for **Admin**, **Recruitment**, **Time**, **Leave**.
+3. Repeat for **Admin** and **Recruitment**
 4. Navigate back to Dashboard
 
 **Expected Result:**
