@@ -21,7 +21,8 @@
 * **Steps:**
 1. Observe the left sidebar
 
-**Expected Result:** The following items are visible and enabled: Admin, PIM, Recruitment
+**Expected Result:** The following items are visible and enabled: Admin, PIM, Recruitment.
+
 ---
 
 ### TC-DASH-003: Sidebar Item Navigates to Correct Module
