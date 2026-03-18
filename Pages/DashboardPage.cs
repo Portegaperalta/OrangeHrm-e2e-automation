@@ -41,28 +41,28 @@ public class DashboardPage : BasePage
 
         _userDropwdownMenuButton = Page.Locator("i.oxd-userdropdown-icon");
 
-        _logoutLink = Page.Locator(".oxd-userdropdown-link")
+        _logoutLink = Page.Locator("a.oxd-userdropdown-link")
                           .Filter(new() { HasText = "Logout" });
 
-        _timeAtWorkWidget = Page.Locator(".orangehrm-dashboard-widget")
+        _timeAtWorkWidget = Page.Locator("div.orangehrm-dashboard-widget")
                                 .Filter(new() { HasText = "Time at Work" });
 
-        _myActionsWidget = Page.Locator(".orangehrm-dashboard-widget")
+        _myActionsWidget = Page.Locator("div.orangehrm-dashboard-widget")
                                .Filter(new() { HasText = "My Actions" });
 
-        _quickLaunchWidget = Page.Locator(".orangehrm-dashboard-widget")
+        _quickLaunchWidget = Page.Locator("div.orangehrm-dashboard-widget")
                                .Filter(new() { HasText = "Quick Launch" });
 
-        _buzzPostsWidget = Page.Locator(".orangehrm-dashboard-widget")
+        _buzzPostsWidget = Page.Locator("div.orangehrm-dashboard-widget")
                                .Filter(new() { HasText = "Buzz Latest Posts" });
 
-        _employeesOnLeaveWidget = Page.Locator(".orangehrm-dashboard-widget")
+        _employeesOnLeaveWidget = Page.Locator("div.orangehrm-dashboard-widget")
                                .Filter(new() { HasText = "Employees on Leave Today" });
 
-        _employeeDistributionBySubWidget = Page.Locator(".orangehrm-dashboard-widget")
+        _employeeDistributionBySubWidget = Page.Locator("div.orangehrm-dashboard-widget")
                                .Filter(new() { HasText = "Employee Distribution by Sub Unit" });
 
-        _employeeDistributionByLocationWidget = Page.Locator(".orangehrm-dashboard-widget")
+        _employeeDistributionByLocationWidget = Page.Locator("div.orangehrm-dashboard-widget")
                                .Filter(new() { HasText = "Employee Distribution by Location" });
     }
 
