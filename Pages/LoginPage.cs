@@ -39,6 +39,13 @@ public class LoginPage : BasePage
 
     public async Task ClickLoginButtonAsync() => await _loginButton.ClickAsync();
 
+    public async Task LoginAsync(string username, string password)
+    {
+        await InsertUserNameAsync(username);
+        await InsertPasswordAsync(password);
+        await ClickLoginButtonAsync();
+    }
+
     public async Task NavigateToAsync()
     {
         await Page.GotoAsync(Url);
