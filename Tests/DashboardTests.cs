@@ -27,9 +27,7 @@ public class DashboardTests : PageTest
 
     // Act
     await loginPage.NavigateToAsync();
-    await loginPage.InsertUserNameAsync(username);
-    await loginPage.InsertPasswordAsync(password);
-    await loginPage.ClickLoginButtonAsync();
+    await loginPage.LoginAsync(username, password);
 
     // Assert
     await Expect(Page).ToHaveURLAsync(dashboardPage.Url);
@@ -51,9 +49,7 @@ public class DashboardTests : PageTest
 
     // Act
     await loginPage.NavigateToAsync();
-    await loginPage.InsertUserNameAsync(username);
-    await loginPage.InsertPasswordAsync(password);
-    await loginPage.ClickLoginButtonAsync();
+    await loginPage.LoginAsync(username, password);
 
     // Assert
     await Expect(Page).ToHaveURLAsync(dashboardPage.Url);
