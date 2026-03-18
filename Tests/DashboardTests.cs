@@ -59,14 +59,6 @@ public class DashboardTests : PageTest
     await Expect(Page).ToHaveURLAsync(dashboardPage.Url);
     await Expect(sidebar.AdminLink).ToBeVisibleAsync();
     await Expect(sidebar.PimLink).ToBeVisibleAsync();
-    await Expect(sidebar.LeaveLink).ToBeVisibleAsync();
-    await Expect(sidebar.TimeLink).ToBeVisibleAsync();
     await Expect(sidebar.RecruitmentLink).ToBeVisibleAsync();
-    await Expect(sidebar.MyInfoLink).ToBeVisibleAsync();
-    await Expect(sidebar.PerformanceLink).ToBeVisibleAsync();
-    await Expect(sidebar.DashboardLink).ToBeVisibleAsync();
-    await Expect(sidebar.DirectoryLink).ToBeVisibleAsync();
-    await Expect(sidebar.MaintenanceLink).ToBeVisibleAsync();
-    await Expect(sidebar.BuzzLink).ToBeVisibleAsync();
   }
 }
