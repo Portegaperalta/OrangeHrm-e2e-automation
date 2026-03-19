@@ -45,7 +45,7 @@ Each sidebar item navigates to its correct module page, URLs match expected rout
 ### TC-DASH-004: Dashboard Widgets Are Displayed
 
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Functional
 * **Preconditions**: 1) Admin is logged in 2) Dashboard is loaded
   
