@@ -93,4 +93,32 @@ public class DashboardTests : PageTest
     await Expect(recruitmentPage.CandidatesTitle).ToBeVisibleAsync();
     await Page.GoBackAsync();
   }
+
+  [Fact]
+  public async Task DashboardWidgets_AreDisplayed()
+  {
+    // Arrange
+    var loginPage = new LoginPage(Page);
+    var dashboardPage = new DashboardPage(Page);
+
+    var username = "Admin";
+    var password = "admin123";
+
+    // Act
+    await loginPage.NavigateToAsync();
+    await loginPage.LoginAsync(username, password);
+
+    // Assert
+    await Expect(Page).ToHaveURLAsync(dashboardPage.Url);
+
+    await Expect(dashboardPage.TimeAtWorkWidget).ToBeVisibleAsync();
+    await Expect(dashboardPage.MyActionsWidget).ToBeVisibleAsync();
+    await Expect(dashboardPage.QuickLaunchWidget).ToBeVisibleAsync();
+    await Expect(dashboardPage.BuzzPostsWidget).ToBeVisibleAsync();
+    await Expect(dashboardPage.EmployeesOnLeaveWidget).ToBeVisibleAsync();
+    await Expect(dashboardPage.EmployeeDistributionBySubWidget).ToBeVisibleAsync();
+    await Expect(dashboardPage.EmployeeDistributionByLocationWidget).ToBeVisibleAsync();
+  }
+
+
 }
