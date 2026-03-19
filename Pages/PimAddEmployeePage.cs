@@ -97,9 +97,7 @@ public class PimAddEmployeePage : BasePage
       => await _employeeLastNameInput.FillAsync(lastName);
 
   public async Task FillEmployeeId(string employeeId)
-  {
-    await _employeeIdInput.FillAsync(employeeId);
-  }
+      => await _employeeIdInput.FillAsync(employeeId);
 
   public async Task ToggleLoginDetails(bool enable)
   {
@@ -115,15 +113,11 @@ public class PimAddEmployeePage : BasePage
     await _confirmEmployeePasswordInput.FillAsync(password);
   }
 
-  public async Task ClickSaveButtonAsync()
-  {
-    await _saveEmployeeButton.ClickAsync();
-  }
+  public async Task ClickSaveButtonAsync() =>
+      await _saveEmployeeButton.ClickAsync();
 
   public async Task ClickCancelButtonAsync()
-  {
-    await _cancelFormButton.ClickAsync();
-  }
+      => await _cancelFormButton.ClickAsync();
 
   public async Task NavigateToAsync()
       => await Page.GotoAsync(Url);
