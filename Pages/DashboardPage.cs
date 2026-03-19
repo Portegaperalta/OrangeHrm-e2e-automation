@@ -45,25 +45,32 @@ public class DashboardPage : BasePage
                           .Filter(new() { HasText = "Logout" });
 
         _timeAtWorkWidget = Page.Locator("div.orangehrm-dashboard-widget")
-                                .Filter(new() { HasText = "Time at Work" });
+                                .Filter(new() { HasText = "Time at Work" })
+                                .First;
 
         _myActionsWidget = Page.Locator("div.orangehrm-dashboard-widget")
-                               .Filter(new() { HasText = "My Actions" });
+                               .Filter(new() { HasText = "My Actions" })
+                               .First;
 
         _quickLaunchWidget = Page.Locator("div.orangehrm-dashboard-widget")
-                               .Filter(new() { HasText = "Quick Launch" });
+                               .Filter(new() { HasText = "Quick Launch" })
+                               .First;
 
         _buzzPostsWidget = Page.Locator("div.orangehrm-dashboard-widget")
-                               .Filter(new() { HasText = "Buzz Latest Posts" });
+                               .Filter(new() { HasText = "Buzz Latest Posts" })
+                               .First;
 
         _employeesOnLeaveWidget = Page.Locator("div.orangehrm-dashboard-widget")
-                               .Filter(new() { HasText = "Employees on Leave Today" });
+                               .Filter(new() { HasText = "Employees on Leave Today" })
+                               .First;
 
         _employeeDistributionBySubWidget = Page.Locator("div.orangehrm-dashboard-widget")
-                               .Filter(new() { HasText = "Employee Distribution by Sub Unit" });
+                               .Filter(new() { HasText = "Employee Distribution by Sub Unit" })
+                               .First;
 
         _employeeDistributionByLocationWidget = Page.Locator("div.orangehrm-dashboard-widget")
-                               .Filter(new() { HasText = "Employee Distribution by Location" });
+                               .Filter(new() { HasText = "Employee Distribution by Location" })
+                               .First;
     }
 
     // Interaction Methods
