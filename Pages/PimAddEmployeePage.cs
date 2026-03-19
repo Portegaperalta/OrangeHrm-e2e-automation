@@ -124,4 +124,7 @@ public class PimAddEmployeePage : BasePage
   {
     await _cancelFormButton.ClickAsync();
   }
+
+  public async Task NavigateToAsync()
+      => await Page.GotoAsync(Url);
 }
