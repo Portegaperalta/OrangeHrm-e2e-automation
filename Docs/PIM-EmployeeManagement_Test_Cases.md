@@ -15,7 +15,7 @@
 4. Note the auto-generated Employee ID
 5. Click **Save**
 
-**Expected Result:** Employee profile page opens. Success message is shown. 
+**Expected Result:** Employee profile page opens. Submitted employee details are shown. 
 
 ---
 
