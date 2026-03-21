@@ -33,7 +33,7 @@
 3. Set a unique Employee ID
 4. Toggle **Create Login Details**
 5. Set Status: `Enabled`
-6. Enter Username: `OrangeHrmTestUser` and password `orangeHrm123`
+6. Enter Username: `OrangeHrmTestUsername` and password `orangeHrm123`
 7. Click **Save**
 
 **Expected Result:** Employee is created successfully and login details saved. 
