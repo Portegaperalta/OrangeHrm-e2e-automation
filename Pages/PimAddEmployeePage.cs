@@ -93,22 +93,21 @@ public class PimAddEmployeePage : BasePage
     public async Task InsertEmployeeLastNameAsync(string lastName)
         => await _employeeLastNameInput.FillAsync(lastName);
 
-    public async Task FillEmployeeId(string employeeId)
-        => await _employeeIdInput.FillAsync(employeeId);
-
-    public async Task ToggleLoginDetails(bool enable)
+    public async Task ToggleLoginDetailsAsync(bool enable)
     {
         var isChecked = await _toggleLoginDetailsButton.IsCheckedAsync();
         if (enable != isChecked)
             await _toggleLoginDetailsButton.ClickAsync();
     }
 
-    public async Task FillLoginCredentials(string username, string password)
-    {
-        await _employeeUsernameInput.FillAsync(username);
-        await _employeePasswordInput.FillAsync(password);
-        await _confirmEmployeePasswordInput.FillAsync(password);
-    }
+    public async Task InsertEmployeeUsernameAsync(string username)
+        => await _employeeUsernameInput.FillAsync(username);
+
+    public async Task InsertEmployeePasswordAsync(string password)
+        => await _employeePasswordInput.FillAsync(password);
+
+    public async Task ConfirmEmployeePasswordAsync(string password)
+        => await _confirmEmployeePasswordInput.FillAsync(password);
 
     public async Task ClickSaveButtonAsync() =>
         await _saveEmployeeButton.ClickAsync();
