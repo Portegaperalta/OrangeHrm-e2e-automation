@@ -27,6 +27,8 @@ public class PimEmployeeListPage : BasePage
     private readonly ILocator _addEmployeeButton;
     private readonly ILocator _employeeList;
     private readonly ILocator _employeeListCard;
+    private readonly ILocator _confirmUserDeleteDialog;
+    private readonly ILocator _confirmUserDeleteButton;
 
     public PimEmployeeListPage(IPage page) : base(page)
     {
@@ -41,27 +43,31 @@ public class PimEmployeeListPage : BasePage
             HasText = "Employee List"
         });
 
-        _searchDropdownButton = Page.Locator("div.oxd-table-filter-header")
-                                                 .GetByRole(AriaRole.Button);
+        _searchDropdownButton = Page.GetByRole(AriaRole.Button)
+        .Filter(new() { Has = Page.Locator("i.bi-caret-up-fill") });
 
-        _employeeNameInput = Page.Locator("div.oxd-input-group", new()
-        { HasText = "Employee Name" }).GetByRole(AriaRole.Textbox);
+        _employeeNameInput = Page.GetByPlaceholder("Type for hints...").First;
 
         _employeeIdInput = Page.Locator("div.oxd-input-group", new()
         { HasText = "Employee Id" }).GetByRole(AriaRole.Textbox);
 
         _searchEmployeeButton = Page.Locator("div.oxd-form-actions")
-                                .GetByRole(AriaRole.Button, new() { Name = "Search" });
+        .GetByRole(AriaRole.Button, new() { Name = "Search" });
 
         _resetFormButton = Page.Locator("div.oxd-form-actions")
-                                .GetByRole(AriaRole.Button, new() { Name = "Reset" });
+        .GetByRole(AriaRole.Button, new() { Name = "Reset" });
 
         _addEmployeeButton = Page.GetByRole(AriaRole.Button)
-                                 .Locator("i.bi-plus");
+        .Locator("i.bi-plus");
 
         _employeeList = Page.Locator("div.orangehrm-employee-list");
 
         _employeeListCard = Page.Locator("div.oxd-table-card");
+
+        _confirmUserDeleteDialog = Page.Locator("div.orangehrm-dialog-popup");
+
+        _confirmUserDeleteButton = _confirmUserDeleteDialog.GetByRole(AriaRole.Button)
+                                  .Filter(new() { Has = Page.Locator("i.bi-trash") });
     }
 
     // Interaction Methods
@@ -88,4 +94,21 @@ public class PimEmployeeListPage : BasePage
 
     public ILocator GetEmployeeCardByUsername(string username)
         => _employeeListCard.Filter(new() { HasText = username });
+
+    public static ILocator GetEditButton(ILocator card)
+        => card.Locator("button.oxd-icon-button")
+           .Filter(new() { Has = card.Locator("i.bi-pencil-fill") });
+
+    public static ILocator GetDeleteButton(ILocator card)
+        => card.Locator("button.oxd-icon-button")
+           .Filter(new() { Has = card.Locator("i.bi-trash") });
+
+    public static async Task ClickEditUserButtonAsync(ILocator card)
+        => await GetEditButton(card).ClickAsync();
+
+    public static async Task ClickDeleteUserButtonAsync(ILocator card)
+        => await GetDeleteButton(card).ClickAsync();
+
+    public async Task ClickConfirmUserDeleteButtonAsync()
+        => await _confirmUserDeleteButton.ClickAsync();
 }
