@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Microsoft.Playwright;
 
 namespace Pages;
@@ -49,14 +50,19 @@ public class PimAddEmployeePage : BasePage
 
         _employeeIdInput = Page.GetByLabel("Employee Id");
 
-        _toggleLoginDetailsButton = Page.Locator("div.oxd-switch-wrapper")
-                                        .GetByRole(AriaRole.Checkbox);
+        _toggleLoginDetailsButton = Page.Locator("div.oxd-switch-wrapper");
 
-        _employeeUsernameInput = Page.GetByLabel("Username");
+        _employeeUsernameInput = Page.Locator("div.oxd-input-group")
+                                     .Filter(new() { HasText = "Username" })
+                                     .GetByRole(AriaRole.Textbox);
 
-        _employeePasswordInput = Page.GetByLabel("Password");
+        _employeePasswordInput = Page.Locator("div.oxd-input-group")
+                                     .Filter(new() { HasTextRegex = new Regex("^Password$") })
+                                     .GetByRole(AriaRole.Textbox);
 
-        _confirmEmployeePasswordInput = Page.GetByLabel("Confirm Password");
+        _confirmEmployeePasswordInput = Page.Locator("div.oxd-input-group")
+                                     .Filter(new() { HasText = "Confirm Password" })
+                                     .GetByRole(AriaRole.Textbox);
 
         _requiredFieldWarning = Page.Locator("span.oxd-input-field-error-message")
                                     .Filter(new() { HasText = "Required" });
@@ -85,12 +91,8 @@ public class PimAddEmployeePage : BasePage
     public async Task InsertEmployeeLastNameAsync(string lastName)
         => await _employeeLastNameInput.FillAsync(lastName);
 
-    public async Task ToggleLoginDetailsAsync(bool enable)
-    {
-        var isChecked = await _toggleLoginDetailsButton.IsCheckedAsync();
-        if (enable != isChecked)
-            await _toggleLoginDetailsButton.ClickAsync(new() { Force = true });
-    }
+    public async Task ToggleLoginDetailsAsync()
+        => await _toggleLoginDetailsButton.ClickAsync();
 
     public async Task InsertEmployeeUsernameAsync(string username)
         => await _employeeUsernameInput.FillAsync(username);
