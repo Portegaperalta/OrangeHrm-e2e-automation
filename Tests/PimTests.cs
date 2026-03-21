@@ -29,8 +29,9 @@ public class PimTests : PageTest
     var loginPassword = "admin123";
     var employeeFirstName = "OrangeHrm";
     var employeeLastName = "TestUser";
+    var employeeFullName = $"{employeeFirstName} {employeeLastName}";
 
-    //Act
+    // Act
     await loginPage.NavigateToAsync();
     await loginPage.LoginAsync(loginUsername, loginPassword);
     await sidebar.ClickPimLinkAsync();
@@ -44,8 +45,7 @@ public class PimTests : PageTest
 
     // Assert
     await Expect(pimEmployeePersonalDetailsPage.EmployeeNameTitle)
-          .ToHaveTextAsync($"{employeeFirstName} {employeeLastName}",
-          new() { Timeout = 10000 });
+          .ToHaveTextAsync(employeeFullName, new() { Timeout = 10000 });
 
     await Expect(pimEmployeePersonalDetailsPage.EmployeeFirstNameInput)
           .ToHaveValueAsync(employeeFirstName);
