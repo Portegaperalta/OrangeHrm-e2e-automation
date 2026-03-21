@@ -26,6 +26,7 @@ public class PimEmployeeListPage : BasePage
     private readonly ILocator _resetFormButton;
     private readonly ILocator _addEmployeeButton;
     private readonly ILocator _employeeList;
+    private readonly ILocator _employeeListCard;
 
     public PimEmployeeListPage(IPage page) : base(page)
     {
@@ -59,6 +60,8 @@ public class PimEmployeeListPage : BasePage
                                  .Locator("i.bi-plus");
 
         _employeeList = Page.Locator("div.orangehrm-employee-list");
+
+        _employeeListCard = Page.Locator("div.oxd-table-card");
     }
 
     // Interaction Methods
@@ -82,4 +85,7 @@ public class PimEmployeeListPage : BasePage
 
     public async Task NavigateToAsync()
         => await Page.GotoAsync(Url);
+
+    public ILocator GetEmployeeCardByUsername(string username)
+        => _employeeListCard.Filter(new() { HasText = username });
 }
