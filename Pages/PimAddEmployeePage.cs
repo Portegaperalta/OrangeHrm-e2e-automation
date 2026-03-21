@@ -47,24 +47,16 @@ public class PimAddEmployeePage : BasePage
 
         _employeeLastNameInput = Page.GetByPlaceholder("Last Name");
 
-        _employeeIdInput = Page.Locator("div.oxd-input-group")
-                               .Filter(new() { Has = Page.GetByLabel("Employee Id") })
-                               .GetByRole(AriaRole.Textbox);
+        _employeeIdInput = Page.GetByLabel("Employee Id");
 
         _toggleLoginDetailsButton = Page.Locator("div.oxd-switch-wrapper")
                                         .GetByRole(AriaRole.Checkbox);
 
-        _employeeUsernameInput = Page.Locator("div.oxd-input-group")
-                               .Filter(new() { Has = Page.GetByLabel("Username") })
-                               .GetByRole(AriaRole.Textbox);
+        _employeeUsernameInput = Page.GetByLabel("Username");
 
-        _employeePasswordInput = Page.Locator("div.oxd-input-group")
-                               .Filter(new() { Has = Page.GetByLabel("Password") })
-                               .GetByRole(AriaRole.Textbox);
+        _employeePasswordInput = Page.GetByLabel("Password");
 
-        _confirmEmployeePasswordInput = Page.Locator("div.oxd-input-group")
-                               .Filter(new() { Has = Page.GetByLabel("Confirm Password") })
-                               .GetByRole(AriaRole.Textbox);
+        _confirmEmployeePasswordInput = Page.GetByLabel("Confirm Password");
 
         _requiredFieldWarning = Page.Locator("span.oxd-input-field-error-message")
                                     .Filter(new() { HasText = "Required" });
@@ -97,7 +89,7 @@ public class PimAddEmployeePage : BasePage
     {
         var isChecked = await _toggleLoginDetailsButton.IsCheckedAsync();
         if (enable != isChecked)
-            await _toggleLoginDetailsButton.ClickAsync();
+            await _toggleLoginDetailsButton.ClickAsync(new() { Force = true });
     }
 
     public async Task InsertEmployeeUsernameAsync(string username)
