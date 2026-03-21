@@ -43,7 +43,7 @@ New user appears in **Admin > User Management** with the given username.
 
 ### TC-PIM-003: Add Employee with Duplicate Employee ID
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Negative / Edge Case
 * **Preconditions**:
   - Admin is logged in.
