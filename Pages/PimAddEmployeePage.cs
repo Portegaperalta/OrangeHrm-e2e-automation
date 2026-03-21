@@ -48,7 +48,9 @@ public class PimAddEmployeePage : BasePage
 
         _employeeLastNameInput = Page.GetByPlaceholder("Last Name");
 
-        _employeeIdInput = Page.GetByLabel("Employee Id");
+        _employeeIdInput = Page.Locator("div.oxd-input-group")
+                               .Filter(new() { HasText = "Employee Id" })
+                               .GetByRole(AriaRole.Textbox);
 
         _toggleLoginDetailsButton = Page.Locator("div.oxd-switch-wrapper");
 
@@ -90,6 +92,12 @@ public class PimAddEmployeePage : BasePage
 
     public async Task InsertEmployeeLastNameAsync(string lastName)
         => await _employeeLastNameInput.FillAsync(lastName);
+
+    public async Task InsertEmployeeIdAsync(string id)
+        => await _employeeIdInput.FillAsync(id);
+
+    public async Task ClearEmployeeIdInputAsnyc()
+        => await _employeeIdInput.ClearAsync();
 
     public async Task ToggleLoginDetailsAsync()
         => await _toggleLoginDetailsButton.ClickAsync();
