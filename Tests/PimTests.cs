@@ -104,4 +104,39 @@ public class PimTests : PageTest
             await Expect(pimEmployeePersonalDetailsPage.EmployeeLastNameInput)
                   .ToHaveValueAsync(employeeLastName);
       }
+
+      [Fact]
+      public async Task
+      AddEmployee_ShowsDuplicatedIdWarning_WhenCreatingUserWithDuplicateId()
+      {
+            // Arrange
+            var loginPage = new LoginPage(Page);
+            var sidebar = new Sidebar(Page);
+            var pimEmployeesListPage = new PimEmployeeListPage(Page);
+            var pimAddEmployeePage = new PimAddEmployeePage(Page);
+
+            var loginUsername = "Admin";
+            var loginPassword = "admin123";
+            var employeeFirstName = "Orange";
+            var employeeMiddleName = "Hrm";
+            var existingId = "0259";
+
+            //Act
+            await loginPage.NavigateToAsync();
+            await loginPage.LoginAsync(loginUsername, loginPassword);
+
+            await sidebar.ClickPimLinkAsync();
+            await pimEmployeesListPage.ClickAddEmployeeButtonAsync();
+            await Expect(Page).ToHaveURLAsync(pimAddEmployeePage.Url);
+
+            await pimAddEmployeePage.InsertEmployeeFirstNameAsync(employeeFirstName);
+            await pimAddEmployeePage.InsertEmployeeMiddleNameAsync(employeeMiddleName);
+            await pimAddEmployeePage.ClearEmployeeIdInputAsnyc();
+            await pimAddEmployeePage.InsertEmployeeIdAsync(existingId);
+            await pimAddEmployeePage.ClickSaveButtonAsync();
+
+            //Assert
+            await Expect(Page).ToHaveURLAsync(pimAddEmployeePage.Url);
+            await Expect(pimAddEmployeePage.DuplicatedEmployeeIdWarning).ToBeVisibleAsync();
+      }
 }
