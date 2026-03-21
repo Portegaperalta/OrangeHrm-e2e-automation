@@ -2,7 +2,7 @@
 
 ### TC-PIM-001: Add Employee with Minimum Required Fields
 * **Priority**: P0 – Critical
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Happy Path
 * **Preconditions**:
   - Admin is logged in.
@@ -21,7 +21,7 @@
 
 ### TC-PIM-002: Add Employee with All Fields and Login Details
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Happy Path
 * **Preconditions**:
   - Admin is logged in.
