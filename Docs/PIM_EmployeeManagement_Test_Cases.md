@@ -61,7 +61,7 @@ New user appears in **Admin > User Management** with the given username.
 
 ### TC-PIM-004: Add Employee with Empty First Name
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Negative / Validation
 * **Preconditions**:
   - Admin is logged in an on the Add employee page.
@@ -77,7 +77,7 @@ New user appears in **Admin > User Management** with the given username.
 
 ### TC-PIM-005: Add Employee with Whitespace-Only Name
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Edge Case
 * **Preconditions**:
   - Admin is logged in an on the Add employee page.
