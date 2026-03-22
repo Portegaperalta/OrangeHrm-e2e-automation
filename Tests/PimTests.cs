@@ -1,6 +1,5 @@
 using Microsoft.Playwright;
 using Microsoft.Playwright.Xunit;
-using Microsoft.VisualBasic;
 using Pages;
 
 namespace Tests;
