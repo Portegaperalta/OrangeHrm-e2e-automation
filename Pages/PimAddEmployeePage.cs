@@ -118,7 +118,7 @@ public class PimAddEmployeePage : BasePage
         => await _cancelFormButton.ClickAsync();
 
     public async Task CreateEmployeeAsync
-    (string firstName, string middleName, string lastName)
+    (string firstName, string? middleName, string lastName)
     {
         await InsertEmployeeFirstNameAsync(firstName);
         await InsertEmployeeLastNameAsync(lastName);
