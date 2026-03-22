@@ -139,4 +139,33 @@ public class PimTests : PageTest
             await Expect(Page).ToHaveURLAsync(pimAddEmployeePage.Url);
             await Expect(pimAddEmployeePage.DuplicatedEmployeeIdWarning).ToBeVisibleAsync();
       }
+
+      [Fact]
+      public async Task AddEmployee_ShowsRequiredWarning_WhenFirstNameIsEmpty()
+      {
+            // Arrange
+            var loginPage = new LoginPage(Page);
+            var sidebar = new Sidebar(Page);
+            var pimEmployeesListPage = new PimEmployeeListPage(Page);
+            var pimAddEmployeePage = new PimAddEmployeePage(Page);
+
+            var loginUsername = "Admin";
+            var loginPassword = "admin123";
+            var employeeLastName = "TestOnly";
+
+            // Act
+            await loginPage.NavigateToAsync();
+            await loginPage.LoginAsync(loginUsername, loginPassword);
+
+            await sidebar.ClickPimLinkAsync();
+            await pimEmployeesListPage.ClickAddEmployeeButtonAsync();
+            await Expect(Page).ToHaveURLAsync(pimAddEmployeePage.Url);
+
+            await pimAddEmployeePage.InsertEmployeeLastNameAsync(employeeLastName);
+            await pimAddEmployeePage.ClickSaveButtonAsync();
+
+            //Assert
+            await Expect(Page).ToHaveURLAsync(pimAddEmployeePage.Url);
+            await Expect(pimAddEmployeePage.RequiredFieldWarning).ToBeVisibleAsync();
+      }
 }
