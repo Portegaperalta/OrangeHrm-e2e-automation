@@ -93,7 +93,7 @@ New user appears in **Admin > User Management** with the given username.
 
 ### TC-PIM-006: Add Employee with Special Characters in Name
 * **Priority**: P2 – Medium
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Edge Case / Boundary
 * **Preconditions**:
   - Admin is logged in an on the Add employee page.
