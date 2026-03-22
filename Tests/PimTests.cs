@@ -1,5 +1,6 @@
 using Microsoft.Playwright;
 using Microsoft.Playwright.Xunit;
+using Microsoft.VisualBasic;
 using Pages;
 
 namespace Tests;
@@ -140,8 +141,11 @@ public class PimTests : PageTest
             await Expect(pimAddEmployeePage.DuplicatedEmployeeIdWarning).ToBeVisibleAsync();
       }
 
-      [Fact]
-      public async Task AddEmployee_ShowsRequiredWarning_WhenFirstNameIsEmpty()
+      [Theory]
+      [InlineData(null)]
+      [InlineData("   ")]
+      public async Task
+            AddEmployee_ShowsRequiredWarning_WhenFirstNameIsNullOrEmpty(string? firstName)
       {
             // Arrange
             var loginPage = new LoginPage(Page);
@@ -160,6 +164,9 @@ public class PimTests : PageTest
             await sidebar.ClickPimLinkAsync();
             await pimEmployeesListPage.ClickAddEmployeeButtonAsync();
             await Expect(Page).ToHaveURLAsync(pimAddEmployeePage.Url);
+
+            if (firstName != null)
+                  await pimAddEmployeePage.InsertEmployeeFirstNameAsync(firstName);
 
             await pimAddEmployeePage.InsertEmployeeLastNameAsync(employeeLastName);
             await pimAddEmployeePage.ClickSaveButtonAsync();
