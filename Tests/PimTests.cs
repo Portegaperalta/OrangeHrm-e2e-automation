@@ -175,4 +175,44 @@ public class PimTests : PageTest
             await Expect(Page).ToHaveURLAsync(pimAddEmployeePage.Url);
             await Expect(pimAddEmployeePage.RequiredFieldWarning).ToBeVisibleAsync();
       }
+
+      [Fact]
+      public async Task
+      AddEmployee_CreatesEmployee_WhenNameHasSpecialCharacters()
+      {
+            // Arrange
+            var loginPage = new LoginPage(Page);
+            var sidebar = new Sidebar(Page);
+            var pimEmployeesListPage = new PimEmployeeListPage(Page);
+            var pimEmployeePersonalDetailsPage = new PimEmployeePersonalDetailsPage(Page);
+            var pimAddEmployeePage = new PimAddEmployeePage(Page);
+
+            var loginUsername = "Admin";
+            var loginPassword = "admin123";
+            var employeeFirstName = "O'Brian-García";
+            var employeeLastName = "St. James";
+            var employeeFullName = $"{employeeFirstName} {employeeLastName}";
+
+            // Act
+            await loginPage.NavigateToAsync();
+            await loginPage.LoginAsync(loginUsername, loginPassword);
+            await sidebar.ClickPimLinkAsync();
+
+            await pimEmployeesListPage.ClickAddEmployeeButtonAsync();
+            await Expect(Page).ToHaveURLAsync(pimAddEmployeePage.Url);
+
+            await pimAddEmployeePage.InsertEmployeeFirstNameAsync(employeeFirstName);
+            await pimAddEmployeePage.InsertEmployeeLastNameAsync(employeeLastName);
+            await pimAddEmployeePage.ClickSaveButtonAsync();
+
+            // Assert
+            await Expect(pimEmployeePersonalDetailsPage.EmployeeNameTitle)
+                  .ToHaveTextAsync(employeeFullName, new() { Timeout = 10000 });
+
+            await Expect(pimEmployeePersonalDetailsPage.EmployeeFirstNameInput)
+                  .ToHaveValueAsync(employeeFirstName);
+
+            await Expect(pimEmployeePersonalDetailsPage.EmployeeLastNameInput)
+                  .ToHaveValueAsync(employeeLastName);
+      }
 }
