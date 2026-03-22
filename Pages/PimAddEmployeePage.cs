@@ -117,6 +117,18 @@ public class PimAddEmployeePage : BasePage
     public async Task ClickCancelButtonAsync()
         => await _cancelFormButton.ClickAsync();
 
+    public async Task CreateEmployeeAsync
+    (string firstName, string middleName, string lastName)
+    {
+        await InsertEmployeeFirstNameAsync(firstName);
+        await InsertEmployeeLastNameAsync(lastName);
+
+        if (middleName != null)
+            await InsertEmployeeMiddleNameAsync(middleName);
+
+        await ClickSaveButtonAsync();
+    }
+
     public async Task NavigateToAsync()
         => await Page.GotoAsync(Url);
 }
