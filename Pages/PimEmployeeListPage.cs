@@ -73,7 +73,8 @@ public class PimEmployeeListPage : BasePage
         _confirmUserDeleteButton = _confirmUserDeleteDialog.GetByRole(AriaRole.Button)
                                   .Filter(new() { Has = Page.Locator("i.bi-trash") });
 
-        _noRecordsFoundMessage = Page.GetByText("No Records Found");
+        _noRecordsFoundMessage = Page.Locator("span.oxd-text", new()
+        { HasText = "No Records Found" });
     }
 
     // Interaction Methods
