@@ -284,4 +284,29 @@ public class PimTests : PageTest
             //Assert
             await Expect(employeeCard).ToBeVisibleAsync();
       }
+
+      [Fact]
+      public async Task SearchEmployee_ShowsNoRecords_WhenUserDoesNotExist()
+      {
+            // Arrange
+            var loginPage = new LoginPage(Page);
+            var sidebar = new Sidebar(Page);
+            var pimEmployeesListPage = new PimEmployeeListPage(Page);
+
+            var loginUsername = "Admin";
+            var loginPassword = "admin123";
+            var nonExistentUsername = "##DOESNOTEXIST!";
+
+            // Act
+            await loginPage.NavigateToAsync();
+            await loginPage.LoginAsync(loginUsername, loginPassword);
+
+            await sidebar.ClickPimLinkAsync();
+            await pimEmployeesListPage.ClickSearchDropdownButtonAsync();
+            await pimEmployeesListPage.InsertEmployeeNameAsync(nonExistentUsername);
+            await pimEmployeesListPage.ClickSearchEmployeeButtonAsync();
+
+            //Assert
+            await Expect(pimEmployeesListPage.NoRecordsFoundMessage).ToBeVisibleAsync();
+      }
 }
