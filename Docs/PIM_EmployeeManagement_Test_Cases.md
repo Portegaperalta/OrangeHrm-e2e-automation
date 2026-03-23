@@ -150,7 +150,7 @@ New user appears in **Admin > User Management** with the given username.
 
 ### TC-PIM-009: Search Returns No Results when Credentials Don't Exist
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Negative
 * **Preconditions**:
   - Admin is logged in an on the Employee List Page.
