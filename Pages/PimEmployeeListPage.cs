@@ -43,10 +43,12 @@ public class PimEmployeeListPage : BasePage
             HasText = "Employee List"
         });
 
-        _searchDropdownButton = Page.GetByRole(AriaRole.Button)
-        .Filter(new() { Has = Page.Locator("i.bi-caret-up-fill") });
+        _searchDropdownButton = Page.Locator("div.oxd-table-filter-header")
+                                    .Locator("button.oxd-icon-button");
 
-        _employeeNameInput = Page.GetByPlaceholder("Type for hints...").First;
+        _employeeNameInput = Page.Locator("div.oxd-grid-item")
+                                 .Filter(new() { HasText = "Employee Name" })
+                                 .GetByPlaceholder("Type for hints...");
 
         _employeeIdInput = Page.Locator("div.oxd-input-group", new()
         { HasText = "Employee Id" }).GetByRole(AriaRole.Textbox);
@@ -72,7 +74,14 @@ public class PimEmployeeListPage : BasePage
 
     // Interaction Methods
     public async Task ClickSearchDropdownButtonAsync()
-        => await _searchDropdownButton.ClickAsync();
+    {
+        var isCollapsed = await _searchDropdownButton.Locator("i.bi-caret-up-fill").IsVisibleAsync();
+
+        if (isCollapsed is true)
+        {
+            await _searchDropdownButton.ClickAsync();
+        }
+    }
 
     public async Task InsertEmployeeNameAsync(string name)
         => await _employeeNameInput.FillAsync(name);
@@ -95,19 +104,17 @@ public class PimEmployeeListPage : BasePage
     public ILocator GetEmployeeCardByUsername(string username)
         => _employeeListCard.Filter(new() { HasText = username });
 
-    public static ILocator GetEditButton(ILocator card)
-        => card.Locator("button.oxd-icon-button")
-           .Filter(new() { Has = card.Locator("i.bi-pencil-fill") });
+    public async Task ClickDeleteUserButtonAsync(string username)
+    {
+        var employeeCard = GetEmployeeCardByUsername(username);
+        await employeeCard.Locator("i.bi-trash").ClickAsync();
+    }
 
-    public static ILocator GetDeleteButton(ILocator card)
-        => card.Locator("button.oxd-icon-button")
-           .Filter(new() { Has = card.Locator("i.bi-trash") });
-
-    public static async Task ClickEditUserButtonAsync(ILocator card)
-        => await GetEditButton(card).ClickAsync();
-
-    public static async Task ClickDeleteUserButtonAsync(ILocator card)
-        => await GetDeleteButton(card).ClickAsync();
+    public async Task ClickEditUserButtonAsync(string username)
+    {
+        var employeeCard = GetEmployeeCardByUsername(username);
+        await employeeCard.Locator("i.bi-pencil-fill").ClickAsync();
+    }
 
     public async Task ClickConfirmUserDeleteButtonAsync()
         => await _confirmUserDeleteButton.ClickAsync();
