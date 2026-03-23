@@ -104,6 +104,9 @@ public class PimEmployeeListPage : BasePage
     public ILocator GetEmployeeCardByUsername(string username)
         => _employeeListCard.Filter(new() { HasText = username });
 
+    public ILocator GetEmployeeCardById(string id)
+        => _employeeListCard.Filter(new() { HasText = id });
+
     public async Task ClickDeleteUserButtonAsync(string username)
     {
         var employeeCard = GetEmployeeCardByUsername(username);
