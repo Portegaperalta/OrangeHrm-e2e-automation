@@ -249,4 +249,39 @@ public class PimTests : PageTest
             //Assert
             await Expect(employeeCard).ToBeVisibleAsync();
       }
+
+      [Fact]
+      public async Task SearchEmployee_FindsEmployee_ById()
+      {
+            // Arrange
+            var loginPage = new LoginPage(Page);
+            var sidebar = new Sidebar(Page);
+            var pimEmployeesListPage = new PimEmployeeListPage(Page);
+            var pimAddEmployeePage = new PimAddEmployeePage(Page);
+
+            var loginUsername = "Admin";
+            var loginPassword = "admin123";
+            var employeeFirstName = "OrangeHrm";
+            var employeeLastName = "TestUser";
+
+            // Act
+            await loginPage.NavigateToAsync();
+            await loginPage.LoginAsync(loginUsername, loginPassword);
+            await sidebar.ClickPimLinkAsync();
+
+            await pimEmployeesListPage.ClickAddEmployeeButtonAsync();
+            await pimAddEmployeePage.InsertEmployeeFirstNameAsync(employeeFirstName);
+            await pimAddEmployeePage.InsertEmployeeLastNameAsync(employeeLastName);
+            var employeeId = await pimAddEmployeePage.EmployeeIdInput.InputValueAsync();
+            await pimAddEmployeePage.ClickSaveButtonAsync();
+
+            await sidebar.ClickPimLinkAsync();
+            await pimEmployeesListPage.ClickSearchDropdownButtonAsync();
+            await pimEmployeesListPage.InsertEmployeeIdAsync(employeeId);
+            await pimEmployeesListPage.ClickSearchEmployeeButtonAsync();
+            var employeeCard = pimEmployeesListPage.GetEmployeeCardById(employeeId);
+
+            //Assert
+            await Expect(employeeCard).ToBeVisibleAsync();
+      }
 }
