@@ -16,6 +16,7 @@ public class PimEmployeeListPage : BasePage
     public ILocator ResetFormButton => _resetFormButton;
     public ILocator AddEmployeeButton => _addEmployeeButton;
     public ILocator EmployeeList => _employeeList;
+    public ILocator NoRecordsFoundMessage => _noRecordsFoundMessage;
 
     private readonly ILocator _pimTitle;
     private readonly ILocator _employeeListTitle;
@@ -29,6 +30,7 @@ public class PimEmployeeListPage : BasePage
     private readonly ILocator _employeeListCard;
     private readonly ILocator _confirmUserDeleteDialog;
     private readonly ILocator _confirmUserDeleteButton;
+    private readonly ILocator _noRecordsFoundMessage;
 
     public PimEmployeeListPage(IPage page) : base(page)
     {
@@ -70,6 +72,8 @@ public class PimEmployeeListPage : BasePage
 
         _confirmUserDeleteButton = _confirmUserDeleteDialog.GetByRole(AriaRole.Button)
                                   .Filter(new() { Has = Page.Locator("i.bi-trash") });
+
+        _noRecordsFoundMessage = Page.GetByText("No Records Found");
     }
 
     // Interaction Methods
