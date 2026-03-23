@@ -109,7 +109,7 @@ New user appears in **Admin > User Management** with the given username.
 
 ### TC-PIM-007: Search Employee by Full Name
 * **Priority**: P0 – Critical
-* **Status**: Not Run
+* **Status**:  Passed 🟢
 * **Type**: Happy Path
 * **Preconditions**:
   - Admin is logged in an on the Add employee page.
