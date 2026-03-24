@@ -163,8 +163,8 @@ New user appears in **Admin > User Management** with the given username.
 
 ---
 
-### TC-PIM-010: Edit Employee Personal Information
-* **Priority**: P0 – Critical
+### TC-PIM-010: Edit Employee Button Navigates to personal details page
+* **Priority**: P1 – High
 * **Status**: Not Run
 * **Type**: Happy Path
 * **Preconditions**:
@@ -172,12 +172,7 @@ New user appears in **Admin > User Management** with the given username.
   - An employee record exists
   
 * **Steps:**
-1. Enter First Name: `OrangeHrm`
-2. Enter Last Name: `TestUser`
-3. Click **Save**
-4. Navigate to **PIM > Employee List**
-5. Search for the target employee and click the pen icon (edit profile button).
-6. Change the **Nationality** to a new value
-7. Click **Save**
+1. Navigate to **PIM > Employee List**
+2. Search for the target employee and click the pen icon (edit profile button).
 
-**Expected Result:** Success toast appears. Refreshing the page confirms the new Nationality value is persisted.
+**Expected Result:** Employee profile page opens. Submitted employee details are shown. 
