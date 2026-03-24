@@ -171,7 +171,7 @@ New user appears in **Admin > User Management** with the given username.
   - Admin is logged in an on the Employee List Page.
   
 * **Steps:**
-1. Click the **Add Employee **button
+1. Click **Add Employee** button
 2. Enter First Name: `OrangeHrm`
 3. Enter Last Name: `TestUser`
 4. Click **Save**
