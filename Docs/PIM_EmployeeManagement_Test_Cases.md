@@ -169,10 +169,13 @@ New user appears in **Admin > User Management** with the given username.
 * **Type**: Happy Path
 * **Preconditions**:
   - Admin is logged in an on the Employee List Page.
-  - An employee record exists
   
 * **Steps:**
-1. Navigate to **PIM > Employee List**
-2. Search for the target employee and click the pen icon (edit profile button).
+1. Click the **Add Employee **button
+2. Enter First Name: `OrangeHrm`
+3. Enter Last Name: `TestUser`
+4. Click **Save**
+5. Navigate to **PIM > Employee List**
+6. Search for the target employee and click the pen icon (edit profile button).
 
 **Expected Result:** Employee profile page opens. Submitted employee details are shown. 
