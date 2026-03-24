@@ -165,7 +165,7 @@ New user appears in **Admin > User Management** with the given username.
 
 ### TC-PIM-010: Edit Employee Button Navigates to personal details page
 * **Priority**: P1 – High
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Happy Path
 * **Preconditions**:
   - Admin is logged in an on the Employee List Page.
