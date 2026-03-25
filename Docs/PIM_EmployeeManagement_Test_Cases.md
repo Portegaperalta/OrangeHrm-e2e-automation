@@ -180,6 +180,8 @@ New user appears in **Admin > User Management** with the given username.
 
 **Expected Result:** Employee profile page opens. Submitted employee details are shown. 
 
+---
+
 ### TC-PIM-011: Edit Employee Personal Information
 
 * **Priority**: P0 – Critical
@@ -197,3 +199,49 @@ New user appears in **Admin > User Management** with the given username.
 6. Click **Save**
 
 **Expected Result:** Employee first and last name are equal to the new inserted values.
+
+---
+
+### TC-PIM-012: Delete a single employee
+
+* **Priority**: P0 – Critical
+* **Status**: Not Run
+* **Type**: Happy Path
+* **Preconditions**:
+  - Admin is logged in an on the Employee List Page.
+  - A deletable employee exists
+  
+* **Steps:**
+1. Click **Add Employee** button
+2. Enter First Name: `OrangeHrm`
+3. Enter Last Name: `TestUser`
+4. Click **Save**
+5. Navigate back to Employee List Page
+6. Search for the created user
+7. Click the trash icon inside the employee card
+8. Confirm employee deletion by clicking **"Yes, Delete**" in the dialog pop-up
+
+**Expected Result:** Employee is removed. Searching for them again returns `"No Records Found"`
+
+---
+
+### TC-PIM-013: Cancel employee deletion
+
+* **Priority**: P1 – High
+* **Status**: Not Run
+* **Type**: Edge Case
+* **Preconditions**:
+  - Admin is logged in an on the Employee List Page.
+  - A deletable employee exists
+  
+* **Steps:**
+1. Click **Add Employee** button
+2. Enter First Name: `OrangeHrm`
+3. Enter Last Name: `TestUser`
+4. Click **Save**
+5. Navigate back to Employee List Page
+6. Search for the created user
+7. Click the trash icon inside the employee card
+8. Cancel employee deletion by clicking **"No, Cancel"** in the dialog pop-up
+
+**Expected Result:** The dialog closes. The employee record remains intact. No deletion occurs.
