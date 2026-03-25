@@ -24,7 +24,6 @@ It establishes the scope, approach, resources, and tooling to validate that all 
 | Dashboard | Widget visibility, navigation links| P1 – High |
 | PIM / Employee Management | Add, edit, delete, search employee| P0 – Critical |
 | Admin – User Management | Create, edit, delete user; assign roles; reset password | P0 – Critical |
-| Recruitment | Add candidate, schedule interview, hire candidate | P1 – High |
 
 ### 3.2 Out of Scope: 
 *   **Attendance, Reports, and Leave Management modules**.
