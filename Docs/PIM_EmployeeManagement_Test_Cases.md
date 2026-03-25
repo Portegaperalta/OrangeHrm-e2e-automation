@@ -183,7 +183,7 @@ New user appears in **Admin > User Management** with the given username.
 ### TC-PIM-011: Edit Employee Personal Information
 
 * **Priority**: P0 – Critical
-* **Status**: Not Run
+* **Status**: Passed 🟢
 * **Type**: Happy Path
 * **Preconditions**:
   - Admin is logged in an on the Employee List Page.
