@@ -179,3 +179,21 @@ New user appears in **Admin > User Management** with the given username.
 6. Search for the target employee and click the pen icon (edit profile button).
 
 **Expected Result:** Employee profile page opens. Submitted employee details are shown. 
+
+### TC-PIM-011: Edit Employee Personal Information
+
+* **Priority**: P0 – Critical
+* **Status**: Not Run
+* **Type**: Happy Path
+* **Preconditions**:
+  - Admin is logged in an on the Employee List Page.
+  
+* **Steps:**
+1. Click **Add Employee** button
+2. Enter First Name: `OrangeHrm`
+3. Enter Last Name: `TestUser`
+4. Click **Save**
+5. Change employee first name to `OrangeHrmEdited` and last name to `TestUserEdited`
+6. Click **Save**
+
+**Expected Result:** Employee first and last name are equal to the new inserted values.
