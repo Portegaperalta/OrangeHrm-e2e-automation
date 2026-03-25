@@ -330,7 +330,6 @@ public class PimTests : PageTest
             await loginPage.NavigateToAsync();
             await loginPage.LoginAsync(loginUsername, loginPassword);
             await sidebar.ClickPimLinkAsync();
-
             await pimEmployeesListPage.ClickAddEmployeeButtonAsync();
 
             await pimAddEmployeePage.InsertEmployeeFirstNameAsync(employeeFirstName);
@@ -352,5 +351,50 @@ public class PimTests : PageTest
 
             await Expect(pimEmployeePersonalDetailsPage.EmployeeLastNameInput)
                   .ToHaveValueAsync(employeeLastName);
+      }
+
+      [Fact]
+      public async Task EmployeeInformation_IsUpdatedSucessfully()
+      {
+            // Arrange
+            var loginPage = new LoginPage(Page);
+            var sidebar = new Sidebar(Page);
+            var pimEmployeesListPage = new PimEmployeeListPage(Page);
+            var pimAddEmployeePage = new PimAddEmployeePage(Page);
+            var pimEmployeePersonalDetailsPage = new PimEmployeePersonalDetailsPage(Page);
+
+            var loginUsername = "Admin";
+            var loginPassword = "admin123";
+            var employeeFirstName = "OrangeHrm";
+            var employeeLastName = "TestUser";
+            var updatedEmployeeFirstName = "OrangeHrmEdited";
+            var updatedEmployeeLastName = "TestUserEdited";
+            var updatedEmployeeFullName = $"{updatedEmployeeFirstName} {updatedEmployeeLastName}";
+
+            // Act
+            await loginPage.NavigateToAsync();
+            await loginPage.LoginAsync(loginUsername, loginPassword);
+            await sidebar.ClickPimLinkAsync();
+            await pimEmployeesListPage.ClickAddEmployeeButtonAsync();
+
+            await pimAddEmployeePage.InsertEmployeeFirstNameAsync(employeeFirstName);
+            await pimAddEmployeePage.InsertEmployeeLastNameAsync(employeeLastName);
+            await pimAddEmployeePage.ClickSaveButtonAsync();
+
+            await pimEmployeePersonalDetailsPage.ClearEmployeeFirstNameAsync();
+            await pimEmployeePersonalDetailsPage.ClearEmployeeLastNameAsync();
+            await pimEmployeePersonalDetailsPage.FillEmployeeFirstNameAsync(updatedEmployeeFirstName);
+            await pimEmployeePersonalDetailsPage.FillEmployeeLastNameAsync(updatedEmployeeLastName);
+            await pimEmployeePersonalDetailsPage.ClickSaveEmployeeDetailsButtonAsync();
+
+            //Assert
+            await Expect(pimEmployeePersonalDetailsPage.EmployeeNameTitle)
+                  .ToHaveTextAsync(updatedEmployeeFullName, new() { Timeout = 10000 });
+
+            await Expect(pimEmployeePersonalDetailsPage.EmployeeFirstNameInput)
+                  .ToHaveValueAsync(updatedEmployeeFirstName);
+
+            await Expect(pimEmployeePersonalDetailsPage.EmployeeLastNameInput)
+                  .ToHaveValueAsync(updatedEmployeeLastName);
       }
 }
