@@ -72,6 +72,15 @@ public class PimEmployeePersonalDetailsPage : BasePage
     public async Task FillEmployeeIdAsync(string employeeId)
         => await _employeeIdNameInput.FillAsync(employeeId);
 
+    public async Task ClearEmployeeFirstNameAsync()
+        => await _employeeFirstNameInput.ClearAsync();
+
+    public async Task ClearEmployeeMiddleNameAsync()
+        => await _employeeMiddleNameInput.ClearAsync();
+
+    public async Task ClearEmployeeLastNameAsync()
+        => await _employeeLastNameInput.ClearAsync();
+
     public async Task SelectGenderMaleAsync()
         => await _employeeGenderMaleCheckbox.SetCheckedAsync(true);
 
